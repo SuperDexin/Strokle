@@ -73,8 +73,10 @@ let all_result = [];
 
 let result_icon = ["⬜", "🟩", "🟨"];
 
+let is_end = false;
+
 function choose(ID) {
-	if (now_num < stroke_num) {
+	if (now_num < stroke_num && !is_end) {
 		answers[now_num] = ID;
 		now_num += 1;
 		let spot_id = "line" + (round + 1) + "spot" + now_num;
@@ -83,7 +85,7 @@ function choose(ID) {
 }
 
 function del() {
-	if (now_num > 0) {
+	if (now_num > 0 && !is_end) {
 		let spot_id = "line" + (round + 1) + "spot" + now_num;
 		document.getElementById(spot_id).innerHTML = "";
 		now_num -= 1;
@@ -96,6 +98,8 @@ function submit() {
 		if(check_char_legal()){
 			if(stroke_num == show()){
 				success();
+			}else if(round == max_round_num){
+				fail();
 			}
 		}
 		else{
@@ -171,7 +175,7 @@ function match(){
 }
 
 function success(){
-	let content = `恭喜成功！\n————————————————————\n正确答案：「${question_char}」\n`;
+	let content = `恭喜成功！\n————————————————\n正确答案：「${question_char}」\n`;
 	let temp = 0;
 	for(let i = 0; i < round; i++){
 		for(let j = 0; j < stroke_num; j++){
@@ -181,6 +185,22 @@ function success(){
 		content += "\n";	
 	}
 	round = 0;
+	is_end = true;
+	alert(content);
+}
+
+function fail(){
+	let content = `抱歉你并未完成\n————————————————\n正确答案：「${question_char}」\n`;
+	let temp = 0;
+	for(let i = 0; i < round; i++){
+		for(let j = 0; j < stroke_num; j++){
+			content += result_icon[all_result[temp]];
+			temp++;
+		}
+		content += "\n";	
+	}
+	round = 0;
+	is_end = true;
 	alert(content);
 }
 
@@ -194,6 +214,7 @@ function refresh(){
 
 	round = 0;
 	now_num = 0;
+	is_end = false;
 	all_result = [];
 	document.getElementById("head").innerHTML = "STROKLE";
 	document.getElementById("check_answer").innerHTML = "查看答案";
@@ -227,9 +248,11 @@ function clear() {
 }
 
 function clear_line() {
-	for(let i=0; i<stroke_num; i++){
-		document.getElementById("line"+(round+1)+"spot"+(i+1)).innerHTML = "";
+	if(!is_end){
+		for(let i=0; i<stroke_num; i++){
+			document.getElementById("line"+(round+1)+"spot"+(i+1)).innerHTML = "";
+		}
+		document.getElementById("ans" + (round + 1)).innerHTML = "";
+		now_num = 0;
 	}
-	document.getElementById("ans" + (round + 1)).innerHTML = "";
-	now_num = 0;
 }
