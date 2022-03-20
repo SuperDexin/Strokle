@@ -193,7 +193,7 @@ function refresh(){
 	question_char = characters[temp];
 
 	round = 0;
-	nownum = 0;
+	now_num = 0;
 	all_result = [];
 	document.getElementById("head").innerHTML = "STROKLE";
 	document.getElementById("check_answer").innerHTML = "查看答案";
