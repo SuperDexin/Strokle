@@ -114,7 +114,7 @@ details[open] > summary::after {
 .answer_region > div {
 	margin: 0%;
 	width: 100%;
-	height: calc(100% / 5);
+	height: calc(100% / 6);
 	padding: 0;
 	border: 0;
 	display: flex;
@@ -131,7 +131,7 @@ details[open] > summary::after {
 	background: white;
 	color: gray;
 	height: 100%;
-	width: 25%;
+	width: calc(100% / 4);
 	border-radius: 10px;
 	border: 2px gray solid;
 	line-height: 100%;
@@ -156,7 +156,7 @@ details[open] > summary::after {
 	box-sizing: border-box;
 	margin: 0%;
 	width: 100%;
-	height: calc(100% / 5);
+	height: calc(100% / 6);
 	padding: 15px 0;
 	border: 0;
 	display: flex;

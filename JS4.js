@@ -44,7 +44,7 @@ let orders = [
 
 const total_char = 140;
 let stroke_num = 4;
-let max_round_num = 5;
+let max_round_num = 6;
 
 let now_num = 0;
 let round = 0;
