@@ -1,6 +1,6 @@
-let strokes = ["㇐", "㇑", "㇓", "㇔", "㇕", "㇅", "㇇", "㇗", "㇞", "㇛", "㇂", "㇎"];
+const strokes = ["㇐", "㇑", "㇓", "㇔", "㇕", "㇅", "㇇", "㇗", "㇞", "㇛", "㇂", "㇎"];
 
-let characters = [
+const characters = [
 	"不", "丏", "丐", "丑", "专", "中", "丰", "丹", "为", "乌", "乏", "书", "予", "云", "互",
 	"亓", "五", "井", "亢", "什", "仁", "仂", "仃", "仄", "仅", "仆", "仇", "仉", "今", "介",
 	"仍", "从", "仑", "仓", "以", "允", "元", "公", "六", "兮", "内", "冈", "冗", "凤", "凶",
@@ -11,7 +11,7 @@ let characters = [
 	"殳", "毋", "毌", "比", "毛", "氏", "气", "水", "火", "爪", "父", "爻", "爿", "片", "牙",
 	"牛", "犬", "王", "瓦", "艺", "见", "计", "订", "讣", "认", "讥", "贝", "车", "邒", "邓", "长", "闩", "队", "韦", "风" ]; 
 
-let orders = [
+const orders = [
 	["1", "3", "2", "4"], ["1", "2", "8", "5"], ["1", "2", "1", "9"], ["5", "2", "1", "1"], ["1", "1", "9", "4"], 
 	["2", "5", "1", "2"], ["1", "1", "1", "2"], ["3", "5", "4", "1"], ["4", "3", "5", "4"], ["3", "5", "9", "1"], 
 	["3", "4", "7", "4"], ["5", "5", "2", "4"], ["7", "4", "7", "2"], ["1", "1", "8", "4"], ["1", "8", "5", "1"], 
@@ -43,8 +43,9 @@ let orders = [
 
 
 const total_char = 140;
-let stroke_num = 4;
-let max_round_num = 6;
+const stroke_num = 4;
+const max_round_num = 6;
+const result_icon = ["⬜", "🟩", "🟨"];
 
 let now_num = 0;
 let round = 0;
@@ -54,8 +55,6 @@ let answers = new Array(stroke_num);
 let question = new Array(stroke_num);
 let question_char = "";
 let all_result = [];
-
-let result_icon = ["⬜", "🟩", "🟨"];
 
 let is_end = false;
 
@@ -200,7 +199,7 @@ function refresh(){
 	now_num = 0;
 	is_end = false;
 	all_result = [];
-	document.getElementById("head").innerHTML = "STROKLE 4";
+	document.getElementById("head").innerHTML = "<span style=\"font-size:3rem\">4</span>";
 	document.getElementById("check_answer").innerHTML = "查看答案";
 	clear();
 }
@@ -209,7 +208,7 @@ function show_answer() {
 	let content = "";
 	let button_content;
 	if (!answer_hidden) {
-		content = "STROKLE 4";
+		content = "<span style=\"font-size:3rem\">4</span>";
 		button_content = "查看答案";
 	}
 	if (answer_hidden) {
