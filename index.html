@@ -7,238 +7,170 @@
 	<script type="text/javascript" src="JS.js" ></script>
 </head>
 
-
 <body>
-	<div class="upper_region">
-		<div style="position: relative; width: 100%; height: 100%">
-
-			<div class="title" id="head">
-			STROKLE
-			</div>
-
-			<div class="rules">
-				<button id="myBtn">规则说明</button>
-			</div>
-
-			<div class="show_answer">
-				<button id="check_answer" onclick="show_answer()">查看答案</button>
-			</div>
-
-			<div class="answer_region">
-				<div>
-					<div id="line1spot1"></div>
-					<div id="line1spot2"></div>
-					<div id="line1spot3"></div>
-					<div id="line1spot4"></div>
-					<div id="line1spot5"></div>
-				</div>
-				<div>
-					<div id="line2spot1"></div>
-					<div id="line2spot2"></div>
-					<div id="line2spot3"></div>
-					<div id="line2spot4"></div>
-					<div id="line2spot5"></div>
-				</div>
-				<div>
-					<div id="line3spot1"></div>
-					<div id="line3spot2"></div>
-					<div id="line3spot3"></div>
-					<div id="line3spot4"></div>
-					<div id="line3spot5"></div>
-				</div>
-				<div>
-					<div id="line4spot1"></div>
-					<div id="line4spot2"></div>
-					<div id="line4spot3"></div>
-					<div id="line4spot4"></div>
-					<div id="line4spot5"></div>
-				</div>
-				<div>
-					<div id="line5spot1"></div>
-					<div id="line5spot2"></div>
-					<div id="line5spot3"></div>
-					<div id="line5spot4"></div>
-					<div id="line5spot5"></div>
-				</div>
-				<div>
-					<div id="line6spot1"></div>
-					<div id="line6spot2"></div>
-					<div id="line6spot3"></div>
-					<div id="line6spot4"></div>
-					<div id="line6spot5"></div>
-				</div>
-			</div>
-
-			<div class="ans_chars">
-				<div id="ans1"></div>
-				<div id="ans2"></div>
-				<div id="ans3"></div>
-				<div id="ans4"></div>
-				<div id="ans5"></div>
-				<div id="ans6"></div>
-			</div>
-
+	<div class="background">
+		<div class="head">
+			<p style="font-size: 8rem; margin-bottom: 0">笔&nbsp;&nbsp;&nbsp;兜</p>
+			<p style="font-size: 4rem; margin-top: 0; letter-spacing:2rem">STROKLE</p>
+			<p style="font-size: 2rem; margin-bottom: 0; letter-spacing:0.5rem">汉字笔画版 Wordle</p>
+			<p style="font-size: 1.5rem; margin-top: 0;">A Wordle with Chinese Character Strokes</p>
+			<p style="font-size: 1.5rem; margin-top: 0;">Created by <a class="link" href="https://github.com/SuperDexin">@SuperDexin</a></p>
 		</div>
+
+		<div class="select_region">
+			<button onclick="open_STROKLE('4')">
+				<p>小笔兜</p>
+				<div style="width: 100%">
+					<table>
+						<tr><td>每字笔数：</td><td>4</td></tr>
+						<tr><td>题库字数：</td><td>140</td></tr>
+						<tr><td>尝试次数：</td><td>6</td></tr>
+					</table>
+				</div>
+			</button>
+			<button  onclick="open_STROKLE('5')" style="border: 10px gold dashed;">
+				<p>中笔兜</p>
+				<div style="width: 100%">
+					<table>
+						<tr><td>每字笔数：</td><td>5</td></tr>
+						<tr><td>题库字数：</td><td>205</td></tr>
+						<tr><td>尝试次数：</td><td>6</td></tr>
+					</table>
+				</div>
+			</button>
+			<button onclick="open_STROKLE('6')">
+				<p>大笔兜</p>
+				<div style="width: 100%">
+					<table>
+						<tr><td>每字笔数：</td><td>6</td></tr>
+						<tr><td>题库字数：</td><td>366</td></tr>
+						<tr><td>尝试次数：</td><td>10</td></tr>
+					</table>
+				</div>
+			</button>
+			<div class="recommend">点击进入</div>
+			<div class="recommend">点击进入</div>
+			<div class="recommend">点击进入</div>
+			<div class="recommend" style="color: gold">推荐</div>
+		</div>
+		
+		<div class="rule_region">
+			<p>通过输入<span style="color: darkred;">正确笔顺</span>来猜汉字。</p>
+			<p>每次输入必须保证能写成一个字。</p>
+			<div>
+				<div style="background: lightgreen">
+					<p>猜测后出现<span style="color: darkgreen;">绿色</span>，说明笔画对了，笔画所在位置也对了。</p>
+				</div>
+				<div style="background: lightyellow">
+					<p>猜测后出现<span style="color: darkorange;">黄色</span>，说明这个字有这个笔画，但是不在这个位置。</p>
+				</div>
+				<div style="background: lightgray">
+					<p>猜测后出现<span style="color: gray;">灰色</span>，说明这个笔画的出现次数超过了在答案中的次数。</p>
+				</div>
+			</div>
+		</div>
+		<div class="stroke_table">
+			<p>汉字笔画共有<span style="color: darkblue;">34种</span>，经缩减合并，现用<span style="color: darkorchid;">12种笔画类</span>以赅全部，强烈建议玩之前先熟悉下面的笔画分类表格：</p>
+			<table style="width: 100%;" border="1">
+				<tr>
+					<th colspan="2">笔画分类</th><th>笔形</th><th>名称</th><th>例字</th><th>备注</th></tr>
+				<tr>
+					<td rowspan="2">㇐</td><td rowspan="2">横</td><td>㇐</td><td>横</td><td>一</td><td></td></tr>
+				<tr>
+					<td>㇀</td><td>提</td><td>冫</td><td></td></tr>
+				<tr>
+					<td rowspan="3">㇑</td><td rowspan="3">竖</td><td>㇑</td><td>竖</td><td>十</td><td></td></tr>
+				<tr>
+					<td>㇚</td><td>竖勾</td><td>了</td><td></td></tr>
+				<tr>
+					<td>㇁</td><td>弯勾</td><td>犭</td><td>因楷书「了」第二笔作此，故不将其独立</td></tr>
+				<tr>
+					<td rowspan="2">㇓</td><td rowspan="2">撇</td><td>㇓</td><td>撇</td><td>人</td><td></td></tr>
+				<tr>
+					<td>㇒</td><td>短撇</td><td>千</td><td>「丷」形算一点一撇，「六」「小」中的「八」形算一撇一点，均不算两点</td></tr>
+				<tr>
+					<td rowspan="2">㇔</td><td rowspan="2">点</td><td>㇔</td><td>点</td><td>亠</td><td></td></tr>
+				<tr>
+					<td>㇏</td><td>捺</td><td>人</td><td></td></tr>
+				<tr>
+					<td rowspan="2">㇕</td><td rowspan="2">横折</td><td>㇕</td><td>横折</td><td>口</td><td></td></tr>
+				<tr>
+					<td>㇆</td><td>横折勾</td><td>刀</td><td></td></tr>
+				<tr>
+					<td rowspan="6">㇅</td><td rowspan="6">横折折</td><td>㇅</td><td>横折折</td><td>凹</td><td></td></tr>
+				<tr>
+					<td>㇍</td><td>横折弯</td><td>殳</td><td></td></tr>
+				<tr>
+					<td>㇈</td><td rowspan="2">横折弯勾</td><td>九</td><td></td></tr>
+				<tr>
+					<td>㇠</td><td>乞</td><td></td></tr>
+				<tr>
+					<td>㇊</td><td>横折提</td><td>讠鸠</td><td></td></tr>
+				<tr>
+					<td>⺄</td><td>横斜勾</td><td>飞风</td><td></td></tr>
+				<tr>
+					<td rowspan="2">㇇</td><td rowspan="2">横撇</td><td>㇇</td><td>横撇</td><td>又水</td><td>「互」「毌」「今」不算横撇，「マ」（如「令」「予」）及「之」「了」算横撇/横勾</td></tr>
+				<tr>
+					<td>㇖</td><td>横勾</td><td>买</td><td></td></tr>
+				<tr>
+					<td rowspan="5">㇗</td><td rowspan="5">竖折</td><td>㇗</td><td>竖折</td><td>匚</td><td></td></tr>
+				<tr>
+					<td>㇄</td><td>竖弯</td><td>四</td><td></td></tr>
+				<tr>
+					<td>㇟</td><td>竖弯勾</td><td>孔</td><td></td></tr>
+				<tr>
+					<td>㇙</td><td>竖提</td><td>以切</td><td></td></tr>
+				<tr>
+					<td>㇜</td><td>撇折</td><td>厶幺</td><td>因为「牙」「车」「母」等字折笔不好判断是撇折还是竖折，故与竖折合并</td></tr>
+				<tr>
+					<td rowspan="3">㇞</td><td rowspan="3">竖折折</td><td>㇞</td><td>竖折折</td><td>鼎</td><td></td></tr>
+				<tr>
+					<td>ㄣ</td><td>竖折撇</td><td>专</td><td></td></tr>
+				<tr>
+					<td>㇉</td><td>竖折折勾</td><td>丂马</td><td></td></tr>
+				<tr>
+					<td rowspan="4">㇎</td><td rowspan="4">3形</td><td>㇎</td><td>横折折折</td><td>凸</td><td></td></tr>
+				<tr>
+					<td>㇋</td><td>横折折撇</td><td>及</td><td>「辶」按楷书，第二笔算「㇋」</td></tr>
+				<tr>
+					<td>㇌</td><td>横折弯勾</td><td>阝</td><td></td></tr>
+				<tr>
+					<td>㇡</td><td>横折折折勾</td><td>乃杨</td><td></td></tr>
+				<tr>
+					<td rowspan="2">㇂</td><td rowspan="2">斜勾</td><td>㇂</td><td>斜钩</td><td>戈</td><td></td></tr>
+				<tr>
+					<td>㇃</td><td>卧钩</td><td>心</td><td></td></tr>
+				<tr>
+					<td>㇛</td><td>撇点</td><td>㇛</td><td>撇点</td><td>女巛</td><td></td></tr>
+			</table>
+			<br>
+			<p>附录：</p>
+			<p>140个四画字：</p>
+			<p>丰王亓井开天夫元无韦云专扎丐廿艺木五支丏邒厅卅不仄太犬区历厄友歹尤匹巨车牙屯比互切瓦戈止少日曰中内冈贝见水午手牛气毛壬升夭长仁什仃片仆仇仉化币仂仍仅斤爪反兮刈介从父爻仑今分仓乏凶公月勿丹匀勾乌风凤殳欠氏卬卞六文亢方闩火为斗忆户计订讣认讥冗心尹夬尺引丑巴办书孔劝予双邓爿以允毌毋幻队</p>
+			<br>
+			<p>205个五画字:</p>
+			<p>玉刊未末示击邗邘戋圢打巧正扑卉扒邛功扔去甘世艾艽古节艿本术札可叵匝丙左厉丕右石布夯戊龙平灭轧东匜劢卡北凸占卢业旧帅归且旦目叮叶甲申号电田由卟只叭史央兄叱叽叼叩叫另叨叻叹冉皿凹囚四生失矢氕乍禾仨丘仕付仗代仙仟仡仫伋们仪白仔他仞斥卮瓜仝乎丛令用甩印氐乐尔句匆犰册卯犯处外冬鸟务刍包饥主市邝立冯邙玄闪兰半汀汁汇头氿汈汉氾忉宁穴它宄讦讧讨写让礼讪讫训必议讯记永讱司尻尼民弗弘出阡辽奶奴尕加召皮边孕发圣对弁台矛纠驭母幼丝</p>
+			<br>
+			<p>366个六画字</p>
+			<p>匡耒邦玎玐玑式迂刑邢戎动圩扞圬圭扛寺吉扣圲扦圪圫托考圳老巩执圾圹扩扪扫圮圯地场扬耳芋芏共芊芍芃芄芨芒亚芝芑芎芗朽朴朳机朸权过亘臣吏再协西压厌厍戌在有百而页存匠夸夺夼灰达戍成列死尥夹夷迈轨邪邨毕至尧划此乩贞师尘尖劣光当吁早吐吓旯曳虫曲团同吕吊吃吒因吸吖吗吆帆回则刚网肉囡凼屼屿屾屹岁岌辿屺岂钇钆年朱缶氘氖先牝丢廷舌竹迁乔迄伟传乒乓休伍伎伏伛优臼伢仳佤延伐仲伣仵件犴任伤伥犷价伦份伧犸华仰伉仿伙伪伫伈自伊癿血向囟似后行甪舟全会杀合兆企氽汆众爷伞邠创刖肌肋旬刎匈凫邬朵杂夙旭旮危负舛各名多争色旨冱壮冲冰妆庄庆亦刘齐交次衣产决邡亥充妄闫闬闭问闯羊并关米灯州汗污江汕汔汋汐汲汜池汛汊汝汤忖忏忙兴宇守宅字安祁讲讳讴讵讶讷许讹论讻讼讽设访诀军农聿寻那艮厾尽导异弛羽驮驯驰迅孙孖丞戏观欢买收牟纡红纣纤纥约纨级纩纪纫奸如妁妇妃她妈好巡阱阮阵阳阪阶阴防</p>
+		<div>
+
+		<p style="font-size:0.5em; color: gray">
+			Copyright © 2022<span id="copyright_year"></span> SuperDexin. All rights reserved.<br>
+			Created by <a class="link" href="https://github.com/SuperDexin">@SuperDexin</a><br>
+			<a class="link" href="https://github.com/SuperDexin/Strokle">https://github.com/SuperDexin/Strokle</a>
+		</p>
 	</div>
-	<div class="keyboard_region">
-		<div class="keyboard">
-			<button id="1" onclick="choose(this.id)">㇐</button>
-			<button id="2" onclick="choose(this.id)">㇑</button>
-			<button id="3" onclick="choose(this.id)">㇓</button>
-			<button id="4" onclick="choose(this.id)">㇔</button>
-			<button id="5" onclick="choose(this.id)">㇕</button>
-			<button id="6" onclick="choose(this.id)">㇅</button>
-			<button id="7" onclick="choose(this.id)">㇇</button>
-			<button id="8" onclick="choose(this.id)">㇗</button>
-			<button id="9" onclick="choose(this.id)">㇞</button>
-			<button id="c" onclick="choose(this.id)">㇎</button>
-			<button id="b" onclick="choose(this.id)">㇂</button>
-			<button id="a" onclick="choose(this.id)">㇛</button>
-		</div>
-		<div class="other_buttons">
-			<button onclick="submit()">确 定</button>
-			<button onclick="del()">删 除</button>
-			<button onclick="clear_line()">清 除</button>
-			<button onclick="refresh()">新一局</button>
-		</div>
-	</div>
-
-
-	<!-- 弹窗 -->
-	<div id="myModal" class="modal">
-
-	  <!-- 弹窗内容 -->
-		<div class="modal-content">
-			<div class="modal-header">
-				<span class="close">&times;</span>
-				<h2 id="modal_head">Strokle 规则说明</h2>
-			</div>
-			<div id="modal_body" class="modal-body">
-			  	<div>
-				    <p>你有六次机会来猜一个<span style="color: darkcyan;">笔画数为5</span>的汉字。</p>
-				    <p>一定要按<span style="color: darkred;">正确笔顺</span>输入笔画。</p>
-				    <p>题库中目前有<span style="color: darkgoldenrod;">205个字</span>，基本涵盖了所有常用的五画字。</p>
-				    <p>每次猜测必须保证输入的笔画能按顺序写成一个字才行。</p>
-				    <p style="background: lightgreen; border: 1px black solid;">猜测后出现<span style="color: darkgreen;">绿色</span>，说明笔画对了，笔画所在位置也对了。</p>
-				    <p style="background: lightyellow; border: 1px black solid;">猜测后出现<span style="color: darkorange;">黄色</span>，说明这个字有这个笔画，但是按笔顺的话，这个笔画不在这个位置。</p>
-				    <p style="background: lightgray; border: 1px black solid;">猜测后出现<span style="color: gray;">灰色</span>，说明现在这个笔画的出现次数已经超过了在答案中实际出现的次数。</p>
-				    <p>汉字笔画共有<span style="color: darkblue;">34种</span>,经缩减合并，现用<span style="color: darkorchid;">12种笔画类</span>以赅全部，强烈建议玩之前先熟悉下面的笔画分类表格：</p>
-				    
-				    <table style="width: 100%;" border="1">
-				    	<tr>
-				    		<th colspan="2">笔画分类</th><th>笔形</th><th>名称</th><th>例字</th><th>备注</th></tr>
-						<tr>
-							<td rowspan="2">㇐</td><td rowspan="2">横</td><td>㇐</td><td>横</td><td>一</td><td></td></tr>
-						<tr>
-							<td>㇀</td><td>提</td><td>冫</td><td></td></tr>
-						<tr>
-							<td rowspan="3">㇑</td><td rowspan="3">竖</td><td>㇑</td><td>竖</td><td>十</td><td></td></tr>
-						<tr>
-							<td>㇚</td><td>竖勾</td><td>了</td><td></td></tr>
-						<tr>
-							<td>㇁</td><td>弯勾</td><td>犭</td><td>因楷书「了」第二笔作此，故不将其独立</td></tr>
-						<tr>
-							<td rowspan="2">㇓</td><td rowspan="2">撇</td><td>㇓</td><td>撇</td><td>人</td><td></td></tr>
-						<tr>
-							<td>㇒</td><td>短撇</td><td>千</td><td>「丷」形算一点一撇，「六」「小」中的「八」形算一撇一点，均不算两点</td></tr>
-						<tr>
-							<td rowspan="2">㇔</td><td rowspan="2">点</td><td>㇔</td><td>点</td><td>亠</td><td></td></tr>
-						<tr>
-							<td>㇏</td><td>捺</td><td>人</td><td></td></tr>
-						<tr>
-							<td rowspan="2">㇕</td><td rowspan="2">横折</td><td>㇕</td><td>横折</td><td>口</td><td></td></tr>
-						<tr>
-							<td>㇆</td><td>横折勾</td><td>刀</td><td></td></tr>
-						<tr>
-							<td rowspan="6">㇅</td><td rowspan="6">横折折</td><td>㇅</td><td>横折折</td><td>凹</td><td></td></tr>
-						<tr>
-							<td>㇍</td><td>横折弯</td><td>殳</td><td></td></tr>
-						<tr>
-							<td>㇈</td><td rowspan="2">横折弯勾</td><td>九</td><td></td></tr>
-						<tr>
-							<td>㇠</td><td>乞</td><td></td></tr>
-						<tr>
-							<td>㇊</td><td>横折提</td><td>讠鸠</td><td></td></tr>
-						<tr>
-							<td>⺄</td><td>横斜勾</td><td>飞风</td><td></td></tr>
-						<tr>
-							<td rowspan="2">㇇</td><td rowspan="2">横撇</td><td>㇇</td><td>横撇</td><td>又水</td><td>「互」「毌」「今」不算横撇，「マ」（如「令」「予」）及「之」「了」算横撇/横勾</td></tr>
-						<tr>
-							<td>㇖</td><td>横勾</td><td>买</td><td></td></tr>
-						<tr>
-							<td rowspan="5">㇗</td><td rowspan="5">竖折</td><td>㇗</td><td>竖折</td><td>匚</td><td></td></tr>
-						<tr>
-							<td>㇄</td><td>竖弯</td><td>四</td><td></td></tr>
-						<tr>
-							<td>㇟</td><td>竖弯勾</td><td>孔</td><td></td></tr>
-						<tr>
-							<td>㇙</td><td>竖提</td><td>以切</td><td></td></tr>
-						<tr>
-							<td>㇜</td><td>撇折</td><td>厶幺</td><td>因为「牙」「车」「母」等字折笔不好判断是撇折还是竖折，故与竖折合并</td></tr>
-						<tr>
-							<td rowspan="3">㇞</td><td rowspan="3">竖折折</td><td>㇞</td><td>竖折折</td><td>鼎</td><td></td></tr>
-						<tr>
-							<td>ㄣ</td><td>竖折撇</td><td>专</td><td></td></tr>
-						<tr>
-							<td>㇉</td><td>竖折折勾</td><td>丂马</td><td></td></tr>
-						<tr>
-							<td rowspan="4">㇎</td><td rowspan="4">3形</td><td>㇎</td><td>横折折折</td><td>凸</td><td></td></tr>
-						<tr>
-							<td>㇋</td><td>横折折撇</td><td>及</td><td>「辶」按楷书，第二笔算「㇋」</td></tr>
-						<tr>
-							<td>㇌</td><td>横折弯勾</td><td>阝</td><td></td></tr>
-						<tr>
-							<td>㇡</td><td>横折折折勾</td><td>乃杨</td><td></td></tr>
-						<tr>
-							<td rowspan="2">㇂</td><td rowspan="2">斜勾</td><td>㇂</td><td>斜钩</td><td>戈</td><td></td></tr>
-						<tr>
-							<td>㇃</td><td>卧钩</td><td>心</td><td></td></tr>
-						<tr>
-							<td>㇛</td><td>撇点</td><td>㇛</td><td>撇点</td><td>女巛</td><td></td></tr>
-				    </table>
-				    <br>
-				    <p>附录：205个题库字，看看你打不出来是因为题库没这字还是你的笔顺不对</p>
-				    <p>玉刊未末示击邗邘戋圢打巧正扑卉扒邛功扔去甘世艾艽古节艿本术札可叵匝丙左厉丕右石布夯戊龙平灭轧东匜劢卡北凸占卢业旧帅归且旦目叮叶甲申号电田由卟只叭史央兄叱叽叼叩叫另叨叻叹冉皿凹囚四生失矢氕乍禾仨丘仕付仗代仙仟仡仫伋们仪白仔他仞斥卮瓜仝乎丛令用甩印氐乐尔句匆犰册卯犯处外冬鸟务刍包饥主市邝立冯邙玄闪兰半汀汁汇头氿汈汉氾忉宁穴它宄讦讧讨写让礼讪讫训必议讯记永讱司尻尼民弗弘出阡辽奶奴尕加召皮边孕发圣对弁台矛纠驭母幼丝</p>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<h3>到底了</h3>
-			</div>
-		</div>
-	</div>
-
-	<script>
-		first_start();
-	</script>
 
 	<script>
 		{
-			// 获取弹窗
-			let modal = document.getElementById('myModal');
-
-			// 打开弹窗的按钮对象
-			let btn = document.getElementById("myBtn");
-
-			// 获取 <span> 元素，用于关闭弹窗 that closes the modal
-			let span = document.getElementsByClassName("close")[0];
-
-			// 点击按钮打开弹窗
-			btn.onclick = function() {
-			    modal.style.display = "block";
-			}
-
-			// 点击 <span> (x), 关闭弹窗
-			span.onclick = function() {
-			    modal.style.display = "none";
-			}
-
-			// 在用户点击其他地方时，关闭弹窗
-			window.onclick = function(event) {
-			    if (event.target == modal) {
-			        modal.style.display = "none";
-			    }
+			const d = new Date();
+			const n = d.getFullYear();
+			if (n > 2022) {
+				document.getElementById("copyright_year").innerHTML = "-" + n;
 			}
 		}
 	</script>
+
 </body>
 </html>

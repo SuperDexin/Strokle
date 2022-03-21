@@ -14,11 +14,14 @@
 	src: url('SourceHanSerifSC-Heavy.otf');
 }
 
+@font-face {
+	font-family: SiyuanSong_Medium;
+	src: url('SourceHanSerifSC-Medium.otf');
+}
+
 
 body {
-	margin: 0 auto;
-	width: 100%;
-	background: black;
+	margin: 0;
 	text-align: center;
 }
 
@@ -26,22 +29,11 @@ html, body{
 	height: 100%;
 }
 
+
 div{
 	display: inline-block;
 	border-radius: 10px;
 	text-align: center;
-}
-
-button {
-	touch-action: manipulation;
-}
-
-details:not([open]) > summary::after {
-	content: "更多";
-}
-
-details[open] > summary::after {
-	content: "收起";
 }
 
 .link {
@@ -52,277 +44,100 @@ details[open] > summary::after {
 	text-decoration: none;
 }
 
-.upper_region {
-	position: absolute;
-	left: 5%;
-	right: 5%;
-	width: 90%;
-	height: calc(100% - 510px);
+.background {
+	position: relative;
+	width: 100%;
 	background: white;
-	top: 45px;
 }
 
-.title {
-	position: absolute;
-	text-align: center;
-	left: 0;
-	right: 0;
-	top: 0;
-	width: 100%;
-	line-height: calc(4% + 90px + 2.5rem);
-	font-size: 6rem;
+.head {
 	font-family: SiyuanSong_Heavy;
-	letter-spacing: 1.5rem;
 }
 
-.rules {
-	position: absolute;
-	left: 2%;
-	bottom: calc(96% - 90px - 0.5rem);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.show_answer {
-	position: absolute;
-	right: 2%;
-	bottom: calc(96% - 90px - 0.5rem);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.upper_region > div > div > button {
-	font-size: 1.5rem;
-	color: gray;
-	border: none;
-	background: none;
-}
-
-.answer_region {
-	position: absolute;
-	left: 2%;
-	right: 2%;
-	bottom: 30px;
-	width: 96%;
-	margin: 0;
-	height: calc(96% - 90px - 2.5rem);
-	padding: 0%;
-}
-
-.answer_region > div {
-	margin: 0%;
-	width: 100%;
-	height: calc(100% / 6);
-	padding: 0;
-	border: 0;
+.select_region {
+	width: 90%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.answer_region > div > div {
-	box-sizing: border-box;
-	-moz-box-sizing:border-box; /* Firefox */
-	-webkit-box-sizing:border-box; /* Safari */
-	font-family: SiyuanHei_Medium;
-	font-size: 7rem;
-	background: white;
-	color: gray;
-	height: 100%;
-	width: 20%;
-	border-radius: 10px;
-	border: 2px gray solid;
-	line-height: 100%;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
 	justify-content: space-around;
+	align-items: center;
+	margin: 5% 5% 0 5%;
 }
 
-.ans_chars {
-	position: absolute;
-	left: 2%;
-	right: 2%;
-	bottom: 30px;
-	width: 96%;
-	margin: 0;
-	height: calc(96% - 90px - 2.5rem);
-	padding: 0%;
-}
-
-.ans_chars > div {
-	box-sizing: border-box;
-	margin: 0%;
-	width: 100%;
-	height: calc(100% / 6);
-	padding: 15px 0;
-	border: 0;
-	display: flex;
-	font-size: 1.5rem;
-	color: gray;
-	overflow: hidden;
-	align-items: flex-start;
-	flex-direction: row;
-	writing-mode: vertical-lr;
-}
-
-.keyboard_region{
-	position: absolute;
-	bottom: 45px;
-	left: 5%;
-	right: 5%;
-	background: lightgray;
-	height: 400px;
-}
-
-.keyboard{
-	margin: 2%;
-	margin-bottom: 0;
-	width: 96%;
-	height: 60%;
-	padding: 0;
-	border: 0;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.keyboard > button {
-	font-family: SiyuanHei_Heavy;
-	display: inline-block;
-	font-size: 250%;
-	background: black;
-	color: white;
-	flex: 0 0 calc(100% / 6);
-	height: 50%;
-	margin: 0;
-	padding: 0;
-	border-color: lightgray;
-	border-radius: 10px;
-}
-
-.other_buttons{
-	margin: 2% 2%;
-	width: 96%;
-	height: 25%;
-	padding: 0;
-	border: 0;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.other_buttons > button {
-	font-family: SiyuanHei_Medium;
-	display: inline-block;
-	font-size: 250%;
-	background: white;
-	color: black;
+.select_region > button {
+	border: 10px white hidden;
 	height: 100%;
-	padding: 0;
+	width: 30%;
+	border-radius: 30px;
+	box-shadow: 2px 2px 3px #aaaaaa;
+}
+
+.select_region table {
+	margin: 0 auto 5%;
+	width: 90%;
+	height: auto;
+	font-size: 200%;
+	text-align: center;
+	font-family: SiyuanSong_Medium;
+}
+
+.select_region p {
+	font-size: 400%;
+	margin: 0.5em auto;
+	font-family: SiyuanSong_Heavy;
+	margin-top: 0;
+}
+
+.recommend {
+	width: 30%;
+	color: gray;
+	font-size: 200%;
+	font-family: SiyuanSong_Heavy;
+}
+
+.rule_region {
+	font-size: 300%;
+	font-family: SiyuanSong_Medium;
+	width: 90%;
+}
+
+.rule_region > div {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	margin: 0;
-	border-color: lightgray;
-	border-radius: 10px;
-	flex: 0 0 calc(90% / 4);
+}
+
+.rule_region > div > div {
+	width: 30%;
+	border: 1px black solid;
+	margin-bottom: 1em;
+}
+
+.rule_region > div > div > p {
+	margin: 2%;
+	text-align: left;
+	font-size: 80%;
+}
+
+.stroke_table {
+	display: inline-block;
+	font-size: 200%;
+	width: 90%;
+}
+
+.stroke_table > p {
+	font-family: SiyuanSong_Medium;
+}
+
+.stroke_table table {
+	font-family: SiyuanHei_Medium;
 }
 
 
-
-/* 弹窗 */
-.modal {
-    display: none; /* 默认隐藏 */
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-    -webkit-animation-name: fadeIn; 
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
-}
-
-/* 弹窗内容 */
-.modal-content {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    background-color: white;
-    font-size: 1.5rem;
-    text-align: left;
-    font-family: SiyuanHei_Medium;
-    width: 100%;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s;
-    height: 70%;
-}
-
-/* 关闭按钮 */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    margin-right: 5%;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-	width: 100%;
-	height: 10%;
-    padding: 0;
-    background-color: gray;
-    color: white;
-    font-family: SiyuanSong_Heavy;
-    font-size: 2rem;
-}
-
-.modal-body {
-	box-sizing: border-box;
-	width: 100%;
-	height: 90%;
-	padding: 5%;
-	font-size: 2rem;
-	overflow: scroll;
-}
-
-.modal-footer {
-	width: 100%;
-    background-color: lightgray;
-    color: black;
-}
-
-/* 添加动画 */
-@-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0} 
-    to {bottom: 0; opacity: 1}
-}
-
-@keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-
-@-webkit-keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
+@media screen and (min-width: 1000px) {
+	.background {
+		width: 1000px;
+		font-size: 10px;
+	}
 }

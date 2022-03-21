@@ -199,7 +199,7 @@ function refresh(){
 	now_num = 0;
 	is_end = false;
 	all_result = [];
-	document.getElementById("head").innerHTML = "<span style=\"font-size:3rem\">4</span>";
+	document.getElementById("head").innerHTML = "STROKLE<span style=\"font-size:3rem\">4</span>";
 	document.getElementById("check_answer").innerHTML = "查看答案";
 	clear();
 }
@@ -208,7 +208,7 @@ function show_answer() {
 	let content = "";
 	let button_content;
 	if (!answer_hidden) {
-		content = "<span style=\"font-size:3rem\">4</span>";
+		content = "STROKLE<span style=\"font-size:3rem\">4</span>";
 		button_content = "查看答案";
 	}
 	if (answer_hidden) {
