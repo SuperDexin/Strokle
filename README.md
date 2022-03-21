@@ -1,4 +1,4 @@
-# Strokle 笔顺版WORDLE
+# Strokle 笔画版WORDLE
 
 支持4、5、6画的汉字
 
@@ -12,5 +12,4 @@
 
 猜测后出现灰色，说明这个笔画的出现次数超过了在答案中的次数。
 
-汉字笔画共有34种,经缩减合并，现用12种笔画类以赅全部。
-详见https://superdexin.github.io/Strokle/
+汉字笔画共有34种,经缩减合并，现用12种笔画类以赅全部。详见https://superdexin.github.io/Strokle/
