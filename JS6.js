@@ -282,7 +282,7 @@ function show_answer() {
 	let content = "";
 	let button_content;
 	if (!answer_hidden) {
-		content = "<span style=\"font-size:3rem\">6</span>";
+		content = "STROKLE<span style=\"font-size:3rem\">6</span>";
 		button_content = "查看答案";
 	}
 	if (answer_hidden) {
