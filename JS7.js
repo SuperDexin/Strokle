@@ -270,8 +270,8 @@ function show(){
 }
 
 function match(){
-	let match_result = [0,0,0,0,0,0];
-	let temp_array = [0,0,0,0,0,0];
+	let match_result = [0,0,0,0,0,0,0];
+	let temp_array = [0,0,0,0,0,0,0];
 	for(let i = 0; i < stroke_num; i++){
 		if(answers[i] == question[i]){
 			match_result[i] = 1;
